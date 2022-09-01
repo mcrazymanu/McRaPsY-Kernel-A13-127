@@ -322,7 +322,7 @@ include scripts/subarch.include
 # ARCH		?= $(SUBARCH)
 ARCH            ?= arm64
 #CROSS_COMPILE   ?= $(srctree)/toolchain/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-CROSS_COMPILE   ?= /home/rog/toolchains/proton-clang/bin/aarch64-linux-gnu-
+CROSS_COMPILE   ?= /home/rog/toolchains/gcc/bin/aarch64-linux-android-
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
@@ -389,7 +389,7 @@ OBJSIZE		= llvm-size
 STRIP		= llvm-strip
 else
 #CC		= $(srctree)/toolchain/clang/host/linux-x86/clang-r383902/bin/clang
-CC    = /home/rog/toolchains/proton-clang/bin/clang
+CC    = /home/rog/toolchains/clang/bin/clang
 LD		= $(CROSS_COMPILE)ld
 AR		= $(CROSS_COMPILE)ar
 NM		= $(CROSS_COMPILE)nm
