@@ -11,9 +11,9 @@ make ARCH=arm64 -j16
 
 cp -r arch/arm64/boot/Image AIK/Image
 cp -r arch/arm64/boot/dtb_exynos.img AIK/dtb
-cp -r arch/arm64/boot/dtbo_exynos.img AIK/dtbo
+cp -r dtbof1/dtbo.img AIK/dtbo
 cd AIK
-rm -rf McRaPsY_kernel_a13.zip
+rm -rf McRaPsY_v3.6-OC_a13.zip
 rm -rf McRaPsY_kernel_a12s.zip
-zip -r9 McRaPsY_kernel_a13.zip * -x .git README.md *placeholder
+zip -r9 McRaPsY_3.6-OC_a13.zip * -x .git README.md *placeholder
 cd ..
