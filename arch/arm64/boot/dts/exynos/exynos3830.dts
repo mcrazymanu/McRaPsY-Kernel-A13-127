@@ -5167,7 +5167,7 @@
 			sibling-cpus = "4-7";
 			cal-id = <0xb040003>;
 			dm-type = <0x01>;
-			min-freq = <1b580>;
+			min-freq = <0x1b580>;
 			pm_qos-min-class = <0x05>;
 			pm_qos-max-class = <0x06>;
 			#cooling-cells = <0x02>;
