@@ -43,7 +43,6 @@
 #include <linux/slab.h>
 #include <linux/debugfs.h>
 #include <linux/debug-snapshot.h>
-#include <linux/gaming_control.h>
 #include <soc/samsung/tmu.h>
 #include <soc/samsung/ect_parser.h>
 #ifdef CONFIG_EXYNOS_MCINFO
@@ -939,7 +938,7 @@ static int exynos_get_trend(void *p, int trip, enum thermal_trend *trend)
 	if (ret < 0)
 		return ret;
 
-	if (tz->temperature >= trip_temp && !gaming_mode)
+	if (tz->temperature >= trip_temp)
 		*trend = THERMAL_TREND_RAISE_FULL;
 	else
 		*trend = THERMAL_TREND_DROP_FULL;
@@ -1283,7 +1282,7 @@ static int exynos_throttle_cpu_hotplug(void *p, int temp)
 	temp = temp / MCELSIUS;
 
 	if (is_cpu_hotplugged_out) {
-		if (temp < data->hotplug_in_threshold || gaming_mode) {
+		if (temp < data->hotplug_in_threshold) {
 			/*
 			 * If current temperature is lower than low threshold,
 			 * call cluster1_cores_hotplug(false) for hotplugged out cpus.
@@ -1292,7 +1291,7 @@ static int exynos_throttle_cpu_hotplug(void *p, int temp)
 			is_cpu_hotplugged_out = false;
 		}
 	} else {
-		if (temp >= data->hotplug_out_threshold && !gaming_mode) {
+		if (temp >= data->hotplug_out_threshold) {
 			/*
 			 * If current temperature is higher than high threshold,
 			 * call cluster1_cores_hotplug(true) to hold temperature down.
